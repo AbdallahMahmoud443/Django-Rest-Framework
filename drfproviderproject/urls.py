@@ -22,6 +22,8 @@ from drfproviderapp import views
 from rest_framework.routers import DefaultRouter
 router = DefaultRouter()
 router.register('api/viewsetsemployees',views.ViewSetsEmployeesAPI)
+router.register('api/viewsetsdepartments',views.ViewSetsDepartmentsAPI)
+router.register('api/viewsetscountries',views.ViewSetsCountriesAPI)
 
 urlpatterns = [
     path('',include(router.urls))

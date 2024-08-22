@@ -1,8 +1,9 @@
+from django.http import Http404
 from django.shortcuts import render
 from rest_framework.decorators import api_view,APIView
 from rest_framework.response import Response
-from drfproviderapp.models import Employee
-from drfproviderapp.serializers import EmployeeSerializer
+from drfproviderapp.models import Countries, Departments, Employee
+from drfproviderapp.serializers import CountriesSerializer, DepartmentSerializer, EmployeeSerializer
 from rest_framework import status,mixins,generics,viewsets
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.pagination import PageNumberPagination
@@ -50,7 +51,7 @@ def EmployeAPI(request,pk):
         return Response(status=status.HTTP_204_NO_CONTENT)
     
     
-    # ----------------------- Class Based View -----------------------
+# ----------------------- Class Based View -----------------------
 class EmployeeListAPI(APIView):
     
     def get(self,request):
@@ -85,7 +86,6 @@ class EmployeeAPI(APIView):
              serializer.save()
              return Response(serializer.data,status=status.HTTP_200_OK)
          return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
-     
      
     def delete(self,request,pk):
         employee = self.GetEmployee(pk)
@@ -183,6 +183,12 @@ class ViewSetsEmployeesAPI(viewsets.ModelViewSet):
 
 
     
-
+class ViewSetsDepartmentsAPI(viewsets.ModelViewSet):
+    queryset = Departments.objects.all()
+    serializer_class = DepartmentSerializer
+    
+class ViewSetsCountriesAPI(viewsets.ModelViewSet):
+    queryset = Countries.objects.all()
+    serializer_class = CountriesSerializer
 
 

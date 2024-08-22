@@ -45,8 +45,8 @@ INSTALLED_APPS = [
 # 1- Two Create Pagination Must Add it First this configuration WORK WITH (VIEWSET ADN GENERICS)
 # this is public pagination will apply in all endpoints 
 REST_FRAMEWORK = {
-    'DEFAULT_PAGINATION_CLASS':'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE':2,
+   # 'DEFAULT_PAGINATION_CLASS':'rest_framework.pagination.PageNumberPagination',
+    #'PAGE_SIZE':2,
     # Apply Filter to project level (on all endpoints)
     #'DEFAULT_FILTER_BACKENDS':['django_filters.rest_framework.DjangoFilterBackend']
 }
