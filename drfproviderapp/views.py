@@ -196,3 +196,15 @@ class ViewSetsCountriesAPI(viewsets.ModelViewSet):
     serializer_class = CountriesSerializer
 
 
+@api_view(['GET'])
+def DepartmentListAPI(request):
+    if request.method == 'GET':
+        departments = Departments.objects.all().values_list('id','DeprtName')
+        return Response(departments)
+    
+
+@api_view(['GET'])
+def CountryListAPI(request):
+    if request.method == 'GET':
+        Country = Countries.objects.all().values_list('id','CountryName')
+        return Response(Country)

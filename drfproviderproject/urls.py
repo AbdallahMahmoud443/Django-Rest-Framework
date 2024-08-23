@@ -36,7 +36,9 @@ router.register('api/viewsetscountries',views.ViewSetsCountriesAPI)
 urlpatterns = [
     path('',include(router.urls)),
     path('admin/', admin.site.urls),
-    path('get-api-auth-token/',obtain_auth_token,name="api_auth_token") # get token of user 
+    path('get-api-auth-token/',obtain_auth_token,name="api_auth_token"), # get token of user 
+    path('departmentlist/',views.DepartmentListAPI),
+    path('countrylist/',views.CountryListAPI)
 ]
 
 
