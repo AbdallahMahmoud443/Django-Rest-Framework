@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'drfproviderapp',
     'django_filters', # 1- To Apply filter must add app 
+    'rest_framework.authtoken' # To Add Authentication Token must add this app
 ]
 
 # 1- Two Create Pagination Must Add it First this configuration WORK WITH (VIEWSET ADN GENERICS)
@@ -60,6 +61,13 @@ INSTALLED_APPS = [
     
 #  }
 
+# To Add Auth Token 
+REST_FRAMEWORK = {
+    # Add Basic Authentication 
+    'DEFAULT_AUTHENTICATION_CLASSES':['rest_framework.authentication.TokenAuthentication'],
+    'DEFAULT_PERMISSION_CLASSES':['rest_framework.permissions.IsAuthenticated']
+    
+ }
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

@@ -20,14 +20,22 @@ from drfproviderapp import views
 
 # With ViewSets work with Router 
 from rest_framework.routers import DefaultRouter
+from rest_framework.authtoken.views import obtain_auth_token # to get token of login user (this view return token as response)
+'''
+    #! from postman send post request to this view and put (username,password) to return token of specific user
+'''
+
 router = DefaultRouter()
 router.register('api/viewsetsemployees',views.ViewSetsEmployeesAPI)
 router.register('api/viewsetsdepartments',views.ViewSetsDepartmentsAPI)
 router.register('api/viewsetscountries',views.ViewSetsCountriesAPI)
 
+
+
 urlpatterns = [
     path('',include(router.urls)),
     path('admin/', admin.site.urls),
+    path('get-api-auth-token/',obtain_auth_token,name="api_auth_token") # get token of user 
 ]
 
 

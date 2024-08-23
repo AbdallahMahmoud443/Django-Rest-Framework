@@ -188,8 +188,8 @@ class ViewSetsDepartmentsAPI(viewsets.ModelViewSet):
     queryset = Departments.objects.all()
     serializer_class = DepartmentSerializer
     #! Authentication Will Appy on this endpoint only  (locally) must login as user to access these endpoint
-    authentication_classes =[BasicAuthentication]
-    permission_classes=[IsAuthenticated]
+    # authentication_classes =[BasicAuthentication]
+    # permission_classes=[IsAuthenticated]
     
 class ViewSetsCountriesAPI(viewsets.ModelViewSet):
     queryset = Countries.objects.all()
