@@ -142,13 +142,10 @@ class GenericEmployeeAPI(generics.RetrieveUpdateDestroyAPIView):
 
 #  --------------------- ViewSets --------------------- 
 # 1- Create your class that inherited form viewsets.ModelViewSet
-
 # Add Custom pagination To Customize Pagination 
 
 class CustomPagination(PageNumberPagination):
         page_size =2
-
-
 
 class ViewSetsEmployeesAPI(viewsets.ModelViewSet):
     queryset = Employee.objects.all()

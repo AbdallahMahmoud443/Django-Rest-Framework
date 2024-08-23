@@ -44,12 +44,22 @@ INSTALLED_APPS = [
 
 # 1- Two Create Pagination Must Add it First this configuration WORK WITH (VIEWSET ADN GENERICS)
 # this is public pagination will apply in all endpoints 
+
+# REST_FRAMEWORK = {
+#     'DEFAULT_PAGINATION_CLASS':'rest_framework.pagination.PageNumberPagination',
+#     'PAGE_SIZE':2,
+#     # Apply Filter to project level (on all endpoints)
+#     'DEFAULT_FILTER_BACKENDS':['django_filters.rest_framework.DjangoFilterBackend']
+# }
+
+# Add Global Authentication  (this two line prevent any unauthorized user to access endpoints,must create user in system to access it)
 REST_FRAMEWORK = {
-   # 'DEFAULT_PAGINATION_CLASS':'rest_framework.pagination.PageNumberPagination',
-    #'PAGE_SIZE':2,
-    # Apply Filter to project level (on all endpoints)
-    #'DEFAULT_FILTER_BACKENDS':['django_filters.rest_framework.DjangoFilterBackend']
-}
+    # Add Basic Authentication 
+    'DEFAULT_AUTHENTICATION_CLASSES':['rest_framework.authentication.BasicAuthentication'],
+    'DEFAULT_PERMISSION_CLASSES':['rest_framework.permissions.IsAuthenticated']
+    
+ }
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

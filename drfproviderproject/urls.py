@@ -26,7 +26,8 @@ router.register('api/viewsetsdepartments',views.ViewSetsDepartmentsAPI)
 router.register('api/viewsetscountries',views.ViewSetsCountriesAPI)
 
 urlpatterns = [
-    path('',include(router.urls))
+    path('',include(router.urls)),
+    path('admin/', admin.site.urls),
 ]
 
 
