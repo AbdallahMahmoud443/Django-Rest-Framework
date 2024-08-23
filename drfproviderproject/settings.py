@@ -53,12 +53,12 @@ INSTALLED_APPS = [
 # }
 
 # Add Global Authentication  (this two line prevent any unauthorized user to access endpoints,must create user in system to access it)
-REST_FRAMEWORK = {
-    # Add Basic Authentication 
-    'DEFAULT_AUTHENTICATION_CLASSES':['rest_framework.authentication.BasicAuthentication'],
-    'DEFAULT_PERMISSION_CLASSES':['rest_framework.permissions.IsAuthenticated']
+# REST_FRAMEWORK = {
+#     # Add Basic Authentication 
+#     'DEFAULT_AUTHENTICATION_CLASSES':['rest_framework.authentication.BasicAuthentication'],
+#     'DEFAULT_PERMISSION_CLASSES':['rest_framework.permissions.IsAuthenticated']
     
- }
+#  }
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

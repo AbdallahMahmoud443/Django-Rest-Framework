@@ -9,6 +9,10 @@ from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.pagination import PageNumberPagination
 from rest_framework import filters
 
+# use to add basic Authentication 
+from rest_framework.authentication import BasicAuthentication
+from rest_framework.permissions import IsAuthenticated
+
 # Create your views here.
 
 
@@ -183,6 +187,9 @@ class ViewSetsEmployeesAPI(viewsets.ModelViewSet):
 class ViewSetsDepartmentsAPI(viewsets.ModelViewSet):
     queryset = Departments.objects.all()
     serializer_class = DepartmentSerializer
+    #! Authentication Will Appy on this endpoint only  (locally) must login as user to access these endpoint
+    authentication_classes =[BasicAuthentication]
+    permission_classes=[IsAuthenticated]
     
 class ViewSetsCountriesAPI(viewsets.ModelViewSet):
     queryset = Countries.objects.all()
