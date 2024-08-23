@@ -38,9 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'drfproviderapp',
     'django_filters', # 1- To Apply filter must add app 
-    'rest_framework.authtoken' # To Add Authentication Token must add this app
+    'rest_framework.authtoken', # To Add Authentication Token must add this app
+    'corsheaders', #! Important to Enabel Cross-Origin-Resource-Sharing (Send Request From Domain to another)
+    'drfproviderapp',
+    
 ]
 
 # 1- Two Create Pagination Must Add it First this configuration WORK WITH (VIEWSET ADN GENERICS)
@@ -70,6 +72,7 @@ REST_FRAMEWORK = {
     
  }
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware', #! Must Add middleware
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -151,3 +154,11 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# CORS_ORIGIN_ALLOWED_ALL = True # Every front-end application can access this endpoints
+
+# specific front-end application can access this endpoints
+CORS_ALLOWED_ORIGINS = [
+    'https://localhost:9000', # url of front-end and it's port  (9000)
+]
